@@ -29,6 +29,7 @@ jobs:
       - name: Run Harness
         id: run_harness
         run: |
+          set -e
           python challenge/harness.py --num-trials 3 --json submissions/${{ env.PR_AUTHOR }}.py graphs | tee ${{ runner.temp }}/results.txt
           DATA=$(cat ${{ runner.temp }}/results.txt | jq -c .)
           echo "results=$DATA" >> "$GITHUB_OUTPUT"
@@ -48,8 +49,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.14"
-
-      - run: |
+        run: |
+          set -e
           echo "${{ needs.run_harness.outputs.results }}" > ${{ runner.temp }}/results.txt
           python scores/format_journal_entry.py ${{ github.event.workflow_run.jobs.evaluate.outputs.pr_author }} ${{ github.event.workflow_run.jobs.evaluate.outputs.pr_url }} ${{ github.event.workflow_run.jobs.evaluate.outputs.pr_number }} ${{ runner.temp }}/results.txt >> scores/journal.txt
           git config --global user.name "github-actions[bot]"
