@@ -29,13 +29,13 @@ likely take advantage this fact.
 
 ## Rules
 
-1. The contest runs from 8AM PST - 5PM PST on Friday and Saturday. Swing by the
-   Meta booth after 5PM to pick up your prize if you're one of the top N
-   scores. TODO - fix N.
+1. The contest starts at 8am Friday and Saturday. The top 25 finishers each day win swag!
+   Swing by the Meta booth at 5:45pm Friday and 4:00pm Saturday to pick up your swag.
 2. You can enter as many submissions as you like; only your highest score will
    count towards the leaderboard.
 3. One prize per contestant.
-4. Do not modify any of the supporting code.
+4. Your PRs should only add or modify `submissions/<github_username>.py`. Do not
+   modify any of the supporting code or rely on third-party libraries.
 5. AI use is fine, but please make sure that you understand your submission. You
    must be able to answer questions about how it works.
 6. There is a maximum execution time of 10 minutes. Submissions that run longer
