@@ -1,11 +1,9 @@
 name: Update Leaderboard
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - scores/journal.txt
+  workflow_run:
+    workflows: ["Evaluate Submission"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -19,6 +17,7 @@ concurrency:
 
 jobs:
   update-leaderboard:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     outputs:
       pages_ready: ${{ steps.push.outputs.pages_ready }}
