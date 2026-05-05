@@ -18,9 +18,11 @@ jobs:
 
       - name: Debug CPU/GIL constraints
         run: |
-          # What Python sees
-          uv run --python python3.14.3t python -c "
+          # Use the SAME --python specifier as the harness step
+          uv run --python 3.14.3t python -c "
           import sys, os
+          print('Executable:', sys.executable)
+          print('Version:', sys.version)
           print('GIL enabled:', sys._is_gil_enabled())
           print('CPU count:', os.cpu_count())
           print('Affinity:', len(os.sched_getaffinity(0)), os.sched_getaffinity(0))
@@ -44,4 +46,4 @@ jobs:
         run: |
           set -o errexit
           set -o pipefail
-          uv run --python 3.14.3t challenge/harness.py submissions/example.py graphs
+          /usr/bin/time -v uv run --python 3.14.3t challenge/harness.py submissions/example.py graphs 2>&1
