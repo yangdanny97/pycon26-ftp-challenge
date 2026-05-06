@@ -82,5 +82,4 @@ pyenv local 3.14.4t
 * `challenge/harness.py` - The evaluation harness used to score submissions.
 * `challenge/reference.py` - A singly threaded reference solution.
 * `graphs/` - The graphs used to evaluate submissions.
-* `submissions/example.py` - A simple, unoptimized multi-threaded solution.
 * `submission_template.py` - A skeleton solution to start from.

@@ -21,7 +21,6 @@ pycon26-ftp-challenge/
 │   └── test_generate.py          # Tests for graph generation
 ├── graphs/                       # Build graph JSON files used for scoring
 ├── submissions/                  # Participant submissions (one .py per user)
-│   └── example.py
 ├── leaderboard/                  # Static website (HTML/CSS/JS)
 │   ├── index.html
 │   ├── app.js
